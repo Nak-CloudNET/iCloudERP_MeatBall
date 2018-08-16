@@ -144,7 +144,13 @@
 								</a>
 							</li>
 						<?php }else{ ?>
+                            <li>
+                                <a data-target="#myModal" data-toggle="modal" href="javascript:void(0)" id="combine_pay" data-action="combine_pay">
+                                    <i class="fa fa-money"></i> <?=lang('combine_to_pay')?>
+                                </a>
+                            </li>
 							<?php if($GP['sales-export']) { ?>
+
 								<li><a href="#" id="excel" data-action="export_excel"><i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?></a></li>
 								<li><a href="#" id="pdf" data-action="export_pdf"><i class="fa fa-file-pdf-o"></i> <?= lang('export_to_pdf') ?></a></li>
 							<?php }?>

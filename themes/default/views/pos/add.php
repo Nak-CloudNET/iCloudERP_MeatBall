@@ -1051,7 +1051,7 @@ if ($q->num_rows() > 0) {
             <div class="modal-body" id="payment_content">
                 <div class="row">
                     <div class="col-md-10 col-sm-9">
-                        <?php if ($Owner || $Admin) { ?>
+                      
                             <div class="form-group">
 								<div class="row">
 									<div class="col-sm-6">
@@ -1096,26 +1096,11 @@ if ($q->num_rows() > 0) {
 									</div>
 								</div>
                             </div>
-                        <?php } else {
-                            $biller_input = array(
-                                'type' => 'hidden',
-                                'name' => 'biller',
-                                'id' => 'posbiller',
-                                'value' => $this->session->userdata('biller_id'),
-                            );
-							$date_input = array(
-								'type' => 'hidden',
-								'name' => 'date',
-								'id' => 'date'
-							);
-
-                            echo form_input($biller_input);
-							echo form_input($date_input);
-                        }
-                        ?>
-                    
-						<div class="form-group">
+                     
+                        <div class="form-group">
                             <div class="row">
+
+                       
 								<div class="col-sm-6">
 									<div class="form-group">
 										<?= lang("sale_status", "sale_status"); ?>
@@ -1123,6 +1108,7 @@ if ($q->num_rows() > 0) {
 										echo form_dropdown('sale_status', $sst, '', 'class="form-control input-tip" required="required" id="sale_status"'); ?>
 									</div>
 								</div>
+
 								<div class="col-sm-6">
 									<?= lang("payment_date", "payment_date"); ?> (yyyy-mm-dd)
 									<?php echo form_input('payment_date_new', "", 'class="form-control input-tip datetime" id="payment_date_new"'); ?>
@@ -1703,7 +1689,7 @@ if ($q->num_rows() > 0) {
     <div class="modal-content">
 		<div class="modal-body">
 			<button type="button" class="close" data-dismiss="modal">
-				<span aria-hidden="true"><i class="fa fa-2x">×</i></span>
+				<span aria-hidden="true"><i class="fa fa-2x">ï¿½</i></span>
 			</button>
 			<div class="getImg"></div>
 		</div>
@@ -1764,7 +1750,7 @@ if ($q->num_rows() > 0) {
                 <p><?= lang('enter_info'); ?></p>
 
                 <div class="alert alert-danger gcerror-con" style="display: none;">
-                    <button data-dismiss="alert" class="close" type="button">×</button>
+                    <button data-dismiss="alert" class="close" type="button">ï¿½</button>
                     <span id="gcerror"></span>
                 </div>
                 <div class="form-group">
