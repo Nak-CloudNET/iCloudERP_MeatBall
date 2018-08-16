@@ -1,0 +1,28 @@
+Code,Name,Category Code,Unit,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method,Subcategory Code,Product Variants Separated by |,Supplier1(No),Supplier2(No),Supplier3(No),Supplier4(No),Supplier5(No),Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,Custom Field 5,Custom Field 6
+BO-65,???????? 65 ????,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BO-75,???????? 75 ????,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BO-85,???????? 85 ????,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BO-110,???????? 110 ????,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BO-140,???????? 140 ????,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-65,???????? 65? ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-75,???????? 75? ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-85,???????? 85 ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-110,???????? 110 ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-140,???????? 140 ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BM-160,???????? 160 ???,GBM1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN-65,???????? 65 ??????,GBN1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN-75,???????? 75 ??????,GBN1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN-85,???????? 85 ??????,GBN1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN-140,???????? 140 ??????,GBN1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN-160,???????? 160 ??????,GBN1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN2-85,???????????2 85,GBN2,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN2-110,???????????2 110,GBN2,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BN2-160,???????????2 160,GBN2,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BBS-110,????????24???????110,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BMM-85,???????? ????????85,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BR-65,????????65? ???,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BR-110,????????110 ???,GBO1,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+BS,???????,Gpork,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+PR1-65,???????????65 ???,Gpork,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+PR1-110,???????????110 ???,Gpork,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6
+P2-160,??????????????2 ?????????,Gpork,2,0,25000,20, No Tax, exclusive,,Red|Blue|Black|White,402,413,401,6,420,CF1,CF2,CF3,CF4,CF5,CF6

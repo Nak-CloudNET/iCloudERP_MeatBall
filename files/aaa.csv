@@ -1,0 +1,4 @@
+ProductCode,Net Unit Price,Quantity,Customer No,Warehouse Code,Reference No,Date,Shop ID,Sale Status,Payment Term,Payment Status,Shipping,Order Discount,Order Tax,Opening AR (1=yes/0=no)
+material001,10,2,1,WH1,Opening/AR/00001,16/08/2016,2,completed,,pending,1,0,0,1
+material002,12,2,1,WH1,Opening/AR/00001,16/08/2016,2,completed,,pending,1,0,0,1
+material003,8,2,1,WH1,Opening/AR/00002,16/08/2016,2,completed,,pending,1,0,0,1

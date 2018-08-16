@@ -1,0 +1,6 @@
+Code,Name,Category Code,Unit,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method,Subcategory Code,Product Variants Separated by |,Supplier1(No),Supplier2(No),Supplier3(No),Supplier4(No),Supplier5(No),Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,Custom Field 5,Custom Field 6
+B01,Banana1,G0101,5,0,0,10,No Tax, exclusive,,,,,,,,,,,,,
+B02,Banana2,G0101,5,0,0,10,No Tax, exclusive,,,,,,,,,,,,,
+B03,Banana3,G0101,5,0,0,10,No Tax, exclusive,,,,,,,,,,,,,
+B04,Banana4,G0101,5,0,0,10,No Tax, exclusive,,,,,,,,,,,,,
+B05,Banana5,G0101,5,0,0,10,No Tax, exclusive,,,,,,,,,,,,,
