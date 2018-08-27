@@ -2936,10 +2936,10 @@ class Sales extends MY_Controller
 
     function sale_actions()
     {
-        if (!$this->Owner) {
-            $this->session->set_flashdata('warning', lang('access_denied'));
-            redirect($_SERVER["HTTP_REFERER"]);
-        }		
+//        if (!$this->Owner) {
+//            $this->session->set_flashdata('warning', lang('access_denied'));
+//            redirect($_SERVER["HTTP_REFERER"]);
+//        }
         $this->form_validation->set_rules('form_action', lang("form_action"), 'required');
 
         if ($this->form_validation->run() == true) {

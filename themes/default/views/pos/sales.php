@@ -92,9 +92,9 @@
 
 </script>
 
-<?php if ($Owner) {
+<?php
     echo form_open('sales/sale_actions', 'id="action-form"');
-} ?>
+?>
 <div class="box">
     <div class="box-header">
         <h2 class="blue"><i class="fa-fw fa fa-barcode"></i><?= lang('pos_sales') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')'; ?>
@@ -120,7 +120,7 @@
                     <ul class="dropdown-menu pull-right" class="tasks-menus" role="menu" aria-labelledby="dLabel">
                         <li><a href="<?= site_url('pos') ?>"><i class="fa fa-plus-circle"></i> <?= lang('add_sale') ?></a></li>
 						
-						<?php if ($Owner || $Admin) { ?>
+						
 							<li>
 								<a data-target="#myModal" data-toggle="modal" href="javascript:void(0)" id="combine_pay" data-action="combine_pay">
 									<i class="fa fa-money"></i> <?=lang('combine_to_pay')?>
@@ -143,27 +143,6 @@
 									<i class="fa fa-file-pdf-o"></i> <?=lang('combine_print_invoice')?>
 								</a>
 							</li>
-						<?php }else{ ?>
-                            <li>
-                                <a data-target="#myModal" data-toggle="modal" href="javascript:void(0)" id="combine_pay" data-action="combine_pay">
-                                    <i class="fa fa-money"></i> <?=lang('combine_to_pay')?>
-                                </a>
-                            </li>
-							<?php if($GP['sales-export']) { ?>
-
-								<li><a href="#" id="excel" data-action="export_excel"><i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?></a></li>
-								<li><a href="#" id="pdf" data-action="export_pdf"><i class="fa fa-file-pdf-o"></i> <?= lang('export_to_pdf') ?></a></li>
-							<?php }?>
-							
-							<?php if($GP['sales-import']) { ?>
-								<li>
-									<a href="<?= site_url('sales/sale_by_csv'); ?>">
-										<i class="fa fa-plus-circle"></i>
-										<span class="text"> <?= lang('add_sale_by_csv'); ?></span>
-									</a>
-								</li>
-							<?php }?>
-						<?php }?>	
 						
                         <li class="divider"></li>
                         <li><a href="#" class="bpo" title="<b><?= $this->lang->line("delete_sales") ?></b>" data-content="<p><?= lang('r_u_sure') ?></p><button type='button' class='btn btn-danger' id='delete' data-action='delete'><?= lang('i_m_sure') ?></a> <button class='btn bpo-close'><?= lang('no') ?></button>" data-html="true" data-placement="left"><i class="fa fa-trash-o"></i> <?= lang('delete_sales') ?></a></li>
@@ -186,14 +165,13 @@
             </ul>
         </div>
     </div>
-<?php if ($Owner) {?>
+
     <div style="display: none;">
         <input type="hidden" name="form_action" value="" id="form_action"/>
         <?= form_submit('performAction', 'performAction', 'id="action-form-submit"')?>
     </div>
     <?= form_close()?>
-<?php }
-?>  
+
     <div class="box-content">
         <div class="row">
             <div class="col-lg-12">
@@ -300,13 +278,13 @@
         </div>
     </div>
 </div>
-<?php if ($Owner) { ?>
+
     <div style="display: none;">
         <input type="hidden" name="form_action" value="" id="form_action"/>
         <?= form_submit('performAction', 'performAction', 'id="action-form-submit"') ?>
     </div>
     <?= form_close() ?>
-<?php } ?>
+
  
 
 <script>
