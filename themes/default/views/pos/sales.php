@@ -288,7 +288,8 @@
  
 
 <script>
-	$(document).ready(function(){ 
+	$(document).ready(function(){
+        //$('#excel').hide();
         $('#form').hide();
         $('.toggle_down').click(function () {
             $("#form").slideDown();
@@ -298,9 +299,11 @@
             $("#form").slideUp();
             return false;
         });
-        
+
 		$('body').on('click', '#combine_pay', function() {
+
 			 if($('.checkbox').is(":checked") === false){
+
                     alert('Please select at least one.');
 					return false;
                 }
@@ -308,12 +311,30 @@
                 $('.checkbox').each(function(i){
                     if($(this).is(":checked")){
                         if(this.value != ""){
-                            arrItems[i] = $(this).val();   
+                            arrItems[i] = $(this).val();
                         }
                     }
+
                 });
                 $('#myModal').modal({remote: '<?=base_url('sales/combine_payment');?>?data=' + arrItems + ''});
                 $('#myModal').modal('show');
         });
+        $(".dropdown-toggle").click(function(){
+
+            $('#excel').hide();
+
+            var arrItems = [];
+            $('.checkbox').each(function(i){
+                if($(this).is(":checked")){
+                    if(this.value != ""){
+                        arrItems[i] = $(this).val();
+                        $('#excel').show();
+                    }
+                }
+
+            });
+
+        });
+
 	});
 </script>

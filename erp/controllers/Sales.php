@@ -2945,6 +2945,7 @@ class Sales extends MY_Controller
         if ($this->form_validation->run() == true) {
 
             if (!empty($_POST['val'])) {
+
                 if ($this->input->post('form_action') == 'delete') {
                     foreach ($_POST['val'] as $id) {
                         $this->sales_model->deleteSale($id);
