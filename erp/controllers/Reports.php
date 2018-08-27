@@ -7606,6 +7606,7 @@ class Reports extends MY_Controller
         } else {
             $d = NULL;
         }
+
         if ($pdf || $xls) {
 
             $this->db
@@ -7860,7 +7861,7 @@ class Reports extends MY_Controller
 
     function customer_report($user_id = NULL, $term = NULL )
     {
-        $this->erp->checkPermissions('customers', TRUE);
+        //$this->erp->checkPermissions('customers', TRUE);
         if (!$user_id) {
             $this->session->set_flashdata('error', lang("no_customer_selected"));
             redirect('reports/customers');
