@@ -50,9 +50,9 @@
         });
     });
 </script>
-<?php if ($Owner || $GP['bulk_actions']) {
+<?php
     echo form_open('customers/customer_actions', 'id="action-form"');
-} ?>
+ ?>
 <div class="box">
     <div class="box-header">
         <h2 class="blue"><i class="fa-fw fa fa-users"></i><?= lang('customers'); ?></h2>
@@ -170,13 +170,13 @@
         </div>
     </div>
 </div>
-<?php if ($Owner || $GP['bulk_actions']) { ?>
+
     <div style="display: none;">
         <input type="hidden" name="form_action" value="" id="form_action"/>
         <?= form_submit('performAction', 'performAction', 'id="action-form-submit"') ?>
     </div>
     <?= form_close() ?>
-<?php } ?>
+
 <?php if ($action && $action == 'add') {
     echo '<script>$(document).ready(function(){$("#add").trigger("click");});</script>';
 }
