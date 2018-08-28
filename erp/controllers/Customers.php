@@ -416,10 +416,7 @@ class Customers extends MY_Controller
 
     function customer_actions()
     {
-        if (!$this->Owner) {
-            $this->session->set_flashdata('warning', lang('access_denied'));
-            redirect($_SERVER["HTTP_REFERER"]);
-        }
+
 
         $this->form_validation->set_rules('form_action', lang("form_action"), 'required');
 
@@ -448,11 +445,11 @@ class Customers extends MY_Controller
                     $this->excel->getActiveSheet()->setTitle(lang('customer'));
                     $this->excel->getActiveSheet()->SetCellValue('A1', lang('company'));
                     $this->excel->getActiveSheet()->SetCellValue('B1', lang('name'));
-                    $this->excel->getActiveSheet()->SetCellValue('C1', lang('email_address'));
-                    $this->excel->getActiveSheet()->SetCellValue('D1', lang('phone'));
-                    $this->excel->getActiveSheet()->SetCellValue('E1', lang('city'));
-                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('customer_group'));
-                    $this->excel->getActiveSheet()->SetCellValue('G1', lang('vat_no'));
+                    $this->excel->getActiveSheet()->SetCellValue('C1', lang('price_group'));
+                    $this->excel->getActiveSheet()->SetCellValue('D1', lang('customer_group'));
+                    $this->excel->getActiveSheet()->SetCellValue('E1', lang('email'));
+                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('phone'));
+                    $this->excel->getActiveSheet()->SetCellValue('G1', lang('city'));
                     $this->excel->getActiveSheet()->SetCellValue('H1', lang('deposit'));
                     $this->excel->getActiveSheet()->SetCellValue('I1', lang('award_points'));
 
@@ -461,11 +458,11 @@ class Customers extends MY_Controller
                         $customer = $this->site->getCompanyByID($id);
                         $this->excel->getActiveSheet()->SetCellValue('A' . $row, $customer->company);
                         $this->excel->getActiveSheet()->SetCellValue('B' . $row, $customer->name);
-                        $this->excel->getActiveSheet()->SetCellValue('C' . $row, $customer->email);
-                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $customer->phone);
-                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $customer->city);
-                        $this->excel->getActiveSheet()->SetCellValue('F' . $row, $customer->customer_group_name);
-                        $this->excel->getActiveSheet()->SetCellValue('G' . $row, $customer->vat_no);
+                        $this->excel->getActiveSheet()->SetCellValue('C' . $row, $customer->price_group_id);
+                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $customer->customer_group_name);
+                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $customer->email);
+                        $this->excel->getActiveSheet()->SetCellValue('F' . $row, $customer->phone);
+                        $this->excel->getActiveSheet()->SetCellValue('G' . $row, $customer->city);
                         $this->excel->getActiveSheet()->SetCellValue('H' . $row, $customer->deposit_amount);
                         $this->excel->getActiveSheet()->SetCellValue('I' . $row, $customer->award_points);
                         $row++;
@@ -474,6 +471,9 @@ class Customers extends MY_Controller
                     $this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
                     $this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
                     $this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+                    $this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+                    $this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(30);
+                    $this->excel->getActiveSheet()->getColumnDimension('I')->setWidth(20);
                     $this->excel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
                     $filename = 'customers_' . date('Y_m_d_H_i_s');
                     if ($this->input->post('form_action') == 'export_pdf') {
