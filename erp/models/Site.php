@@ -234,7 +234,18 @@ class Site extends CI_Model
         }
         return FALSE;
     }
-	
+    public function getPriceName($id) {
+	    $this->db->select("companies.id, companies.id AS cus_no, company, companies.name, price_groups.name as price_group_name, customer_group_name, address, phone, invoice_payment_term");
+
+        $this->db->join('price_groups', 'price_groups.id = companies.price_group_id', 'left');
+        $this->db->where('group_name', 'customer');
+        $q = $this->db->get('companies');
+
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return FALSE;
+    }
 	public function getSuppliers(){
 		$this->db->select("id, name");
 		$this->db->where('group_name', 'supplier');
@@ -260,6 +271,7 @@ class Site extends CI_Model
         }
         return FALSE;
 	}
+
     
     function getSupplierNameByID($sup_id = null)
 	{
