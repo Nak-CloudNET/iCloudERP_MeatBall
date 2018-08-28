@@ -2966,35 +2966,33 @@ class Sales extends MY_Controller
                     $this->excel->getActiveSheet()->SetCellValue('A1', lang('sale_date'));
                     $this->excel->getActiveSheet()->SetCellValue('B1', lang('payment_date'));
                     $this->excel->getActiveSheet()->SetCellValue('C1', lang('reference_no'));
-                    $this->excel->getActiveSheet()->SetCellValue('D1', lang('biller'));
-                    $this->excel->getActiveSheet()->SetCellValue('E1', lang('customer'));
-					$this->excel->getActiveSheet()->SetCellValue('F1', lang('sale_status'));
-					$this->excel->getActiveSheet()->SetCellValue('G1', lang('quantity'));
-                    $this->excel->getActiveSheet()->SetCellValue('H1', lang('grand_total'));
-                    $this->excel->getActiveSheet()->SetCellValue('I1', lang('paid'));
-					$this->excel->getActiveSheet()->SetCellValue('J1', lang('balance'));
-                    $this->excel->getActiveSheet()->SetCellValue('K1', lang('payment_status'));
+                    $this->excel->getActiveSheet()->SetCellValue('D1', lang('customer'));
+					$this->excel->getActiveSheet()->SetCellValue('E1', lang('sale_status'));
+					$this->excel->getActiveSheet()->SetCellValue('F1', lang('quantity'));
+                    $this->excel->getActiveSheet()->SetCellValue('G1', lang('grand_total'));
+                    $this->excel->getActiveSheet()->SetCellValue('H1', lang('paid'));
+					$this->excel->getActiveSheet()->SetCellValue('I1', lang('balance'));
+                    $this->excel->getActiveSheet()->SetCellValue('J1', lang('payment_status'));
 					$style = array(
 						'alignment' => array(
 							'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
 						)
 					);
-					$this->excel->getActiveSheet()->getStyle('A1:K1')->applyFromArray($style);
+					$this->excel->getActiveSheet()->getStyle('A1:J1')->applyFromArray($style);
                     $row = 2;
                     foreach ($_POST['val'] as $id) {
                         $sale = $this->sales_model->getExportInvoiceByID($id);
                         $this->excel->getActiveSheet()->SetCellValue('A' . $row, $this->erp->hrld($sale->date));
                         $this->excel->getActiveSheet()->SetCellValue('B' . $row, $sale->pdate);
                         $this->excel->getActiveSheet()->setCellValueExplicit('C' . $row, $sale->reference_no, PHPExcel_Cell_DataType::TYPE_STRING);
-                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $sale->biller);
-                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $sale->customer);
-						$this->excel->getActiveSheet()->SetCellValue('F' . $row, $sale->sale_status);
-						$this->excel->getActiveSheet()->SetCellValue('G' . $row, $sale->total_items);
-                        $this->excel->getActiveSheet()->SetCellValue('H' . $row, $sale->grand_total);
-                        $this->excel->getActiveSheet()->SetCellValue('I' . $row, $sale->paid);
-						$this->excel->getActiveSheet()->SetCellValue('J' . $row, ($sale->grand_total - $sale->paid));
-                        $this->excel->getActiveSheet()->SetCellValue('K' . $row, $sale->payment_status);
-                        $this->excel->getActiveSheet()->getStyle('A'.$row.':K'.$row)->applyFromArray($style);
+                        $this->excel->getActiveSheet()->SetCellValue('D' . $row, $sale->customer);
+						$this->excel->getActiveSheet()->SetCellValue('E' . $row, $sale->sale_status);
+						$this->excel->getActiveSheet()->SetCellValue('F' . $row, $sale->total_items);
+                        $this->excel->getActiveSheet()->SetCellValue('G' . $row, $sale->grand_total);
+                        $this->excel->getActiveSheet()->SetCellValue('H' . $row, $sale->paid);
+						$this->excel->getActiveSheet()->SetCellValue('I' . $row, ($sale->grand_total - $sale->paid));
+                        $this->excel->getActiveSheet()->SetCellValue('J' . $row, $sale->payment_status);
+                        $this->excel->getActiveSheet()->getStyle('A'.$row.':J'.$row)->applyFromArray($style);
 						$row++;
                     }
 
@@ -3008,7 +3006,6 @@ class Sales extends MY_Controller
                     $this->excel->getActiveSheet()->getColumnDimension('H')->setWidth(15);
                     $this->excel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
                     $this->excel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
-                    $this->excel->getActiveSheet()->getColumnDimension('K')->setWidth(15);
 					
                     $this->excel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
                     $filename = 'sales_' . date('Y_m_d_H_i_s');
