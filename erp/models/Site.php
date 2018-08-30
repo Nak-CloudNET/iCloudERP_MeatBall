@@ -235,12 +235,11 @@ class Site extends CI_Model
         return FALSE;
     }
     public function getPriceName($id) {
-	    $this->db->select("companies.id, companies.id AS cus_no, company, companies.name, price_groups.name as price_group_name, customer_group_name, address, phone, invoice_payment_term");
-
-        $this->db->join('price_groups', 'price_groups.id = companies.price_group_id', 'left');
-        $this->db->where('group_name', 'customer');
-        $q = $this->db->get('companies');
-
+        $this->db->select('companies.*,price_groups.id AS price_group_id, price_groups.name AS price_group_name');
+        $this->db->from('companies');
+        $this->db->join('price_groups','price_groups.id = companies.price_group_id', 'left');
+        $this->db->where('companies.id', $id);
+        $q = $this->db->get();
         if ($q->num_rows() > 0) {
             return $q->row();
         }
