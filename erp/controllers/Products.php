@@ -309,6 +309,7 @@ class Products extends MY_Controller
         $detail_link = anchor('products/view/$1', '<i class="fa fa-file-text-o"></i> ' . lang('product_details'));
         $delete_link = "<a href='products/delete/$1' class='tip po' title='<b>" . $this->lang->line("delete_product") . "</b>' data-content=\"<p>"
             . lang('r_u_sure') . "</p><a class='btn btn-danger po-delete1' id='a__$1' href='" . site_url('products/delete/$1') . "'>"
+            . lang('r_u_sure') . "</p><a class='btn btn-danger po-delete1' id='a__$1' href='" . site_url('products/delete/$1') . "'>"
             . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> "
             . lang('delete_product') . "</a>";
         $single_barcode = anchor_popup('products/single_barcode/$1/' . ($warehouse_id ? $warehouse_id : ''), '<i class="fa fa-print"></i> ' . lang('print_barcode'), $this->popup_attributes);
@@ -2671,10 +2672,9 @@ class Products extends MY_Controller
     
 	function product_actions($wh = NULL)
     {
-        if (!$this->Owner) {
-            $this->session->set_flashdata('warning', lang('access_denied'));
-            redirect($_SERVER["HTTP_REFERER"]);
-        }
+
+        $this->erp->checkPermissions('export', NULL, 'products');
+
 
         $this->form_validation->set_rules('form_action', lang("form_action"), 'required');
 
