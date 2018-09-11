@@ -963,6 +963,7 @@
 						});
 						$.ajax({'dataType': 'json', 'type': 'POST', 'url': sSource, 'data': aoData, 'success': fnCallback});
 					},
+
 					"aoColumns": [
 						{"bSortable": false, "mRender": checkbox}, {"bSortable": false,"mRender": img_hl}, null, null, null, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": formatQuantity}
 					],
@@ -1024,7 +1025,7 @@
 
 						<div id="proform">
 
-                            <?php echo form_open("reports/customer_report/" . $user_id); ?>
+                            <?php echo form_open("reports/customer_report/" . $user_id."/#products-con"); ?>
                             <div class="row">
 								<div class="col-sm-4">
 									<div class="form-group">
@@ -1049,7 +1050,7 @@
 						<div class="clearfix"></div>
 						
 						<div class="table-responsive">
-							<table id="PRPData" class="table table-bordered table-hover table-striped">
+							<table id="PRPData" class="table table-bordered table-hover table-striped table-condensed reports-table reports-table">
 								<thead>
 								<tr class="primary">
 									<th style="min-width:30px; width: 30px; text-align: center;">

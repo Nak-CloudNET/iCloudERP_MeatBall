@@ -6311,14 +6311,15 @@ class Reports extends MY_Controller
 			->select("sales.id as id, products.image, products.code, products.name as pname, categories.name as cname, (erp_sale_items.quantity * erp_products.cost) as total_cost, (erp_sale_items.quantity * erp_products.price) as total_price, sale_items.quantity", false)
 			->from("sales")
 			->join('sale_items', 'sales.id=sale_items.sale_id', 'inner')
-			->join('products', 'products.id=sale_items.product_id')
-			->join('categories', 'products.category_id=categories.id')
+			->join('products', 'products.id=sale_items.product_id', 'left')
+			->join('categories', 'products.category_id=categories.id', 'left')
 			->where('sales.customer_id', $customer);
 
 		if ($start_date) {
 			$this->datatables->where($this->db->dbprefix('sales').'.date BETWEEN "' . $start_date . '" and "' . $end_date . '"');
 		}
 		echo $this->datatables->generate();
+		//$this->erp->print_arrays();
 	}
 
     function purchases($biller_id = NULL)
@@ -7286,7 +7287,7 @@ class Reports extends MY_Controller
 
             $this->load->library('datatables');
             $this->datatables
-                ->select($this->db->dbprefix('payments') . ".id as idd, " . $this->db->dbprefix('sales') . ".date as sale_date, ". $this->db->dbprefix('payments'). ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".reference_no as sale_ref, " . $this->db->dbprefix('sales') . ".customer as customer,  " . $this->db->dbprefix('sales') . ".total_items as total_items,
+                ->select($this->db->dbprefix('payments') . ".id as idd, " . $this->db->dbprefix('sales') . ".date as sale_date, ". $this->db->dbprefix('payments'). ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".customer as customer,  " . $this->db->dbprefix('sales') . ".total_items as total_items,
 				(
 					CASE 
 						WHEN " . $this->db->dbprefix('payments') . ".note = ' ' THEN 
@@ -7877,7 +7878,7 @@ class Reports extends MY_Controller
 			
         $this->data['error'] = validation_errors() ? validation_errors() : $this->session->flashdata('error');
 		
-		$this->data['date'] = $date;
+		//$this->data['date'] = $date;
 		
         $this->data['user_id'] = $user_id;
         $this->data['term'] = $term;
