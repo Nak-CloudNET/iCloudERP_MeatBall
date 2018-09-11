@@ -37,10 +37,10 @@
         ], "footer");
     });
 </script>
-<?php 
-if ($Owner) {
+<?php
+if ($Owner || $GP['customers-export']) {
     echo form_open('reports/customers_balance'.($warehouse_id ? '/'.$warehouse_id : ''), 'id="action-form"');
-} 
+}
 ?>
 <div class="box">
     <div class="box-header">
@@ -48,22 +48,24 @@ if ($Owner) {
 
         <div class="box-icon">
             <ul class="btn-tasks">
+                <?php if($Owner || $GP['customers-import']) { ?>
                 <li class="dropdown"><a href="#" id="pdf" data-action="export_pdf"  class="tip" title="<?= lang('download_pdf') ?>"><i
                             class="icon fa fa-file-pdf-o"></i></a></li>
                 <li class="dropdown"><a href="#" id="excel" data-action="export_excel"  class="tip" title="<?= lang('download_xls') ?>"><i
                             class="icon fa fa-file-excel-o"></i></a></li>
             <!--    <li class="dropdown"><a href="#" id="image" class="tip" title="<?= lang('save_image') ?>"><i
                             class="icon fa fa-file-picture-o"></i></a></li> -->
+                <?php }?>
             </ul>
         </div>
     </div>
-<?php if ($Owner) { ?>
+<?php if ($Owner || $GP['customers-export']) { ?>
     <div style="display: none;">
         <input type="hidden" name="form_action" value="" id="form_action"/>
         <?= form_submit('performAction', 'performAction', 'id="action-form-submit"') ?>
     </div>
     <?= form_close() ?>
-<?php } ?> 
+<?php } ?>
 	<div class="box-content">
         <div class="row">
             <div class="col-lg-12">
@@ -119,18 +121,7 @@ if ($Owner) {
 <script type="text/javascript" src="<?= $assets ?>js/html2canvas.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-		/*
-        $('#pdf').click(function (event) {
-            event.preventDefault();
-            window.location.href = "<?=site_url('reports/getCustomers/pdf')?>";
-            return false;
-        });
-        $('#xls').click(function (event) {
-            event.preventDefault();
-            window.location.href = "<?=site_url('reports/getCustomers/0/xls')?>";
-            return false;
-        });
-		*/
+
         $('#image').click(function (event) {
             event.preventDefault();
             html2canvas($('.box'), {
