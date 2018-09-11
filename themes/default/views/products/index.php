@@ -110,7 +110,7 @@ if ($this->input->post('cf6')) {
     });
 </script>
 <?php 
-if ($Owner) {
+if ($Owner || $GP["products-export"]) {
     echo form_open('products/product_actions'.($warehouse_id ? '/'.$warehouse_id : ''), 'id="action-form"');
 } 
 ?>
@@ -333,7 +333,7 @@ if ($Owner) {
         return false;
     });
 </script>
-<?php if ($Owner) { ?>
+<?php if ($Owner || $GP["products-export"]) { ?>
     <div style="display: none;">
         <input type="hidden" name="form_action" value="" id="form_action"/>
         <?= form_submit('performAction', 'performAction', 'id="action-form-submit"') ?>
