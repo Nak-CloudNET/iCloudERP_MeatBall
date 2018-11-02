@@ -7083,7 +7083,7 @@ class Reports extends MY_Controller
     function getPaymentsReport($pdf = NULL, $xls = NULL)
     {
         $this->erp->checkPermissions('profit', TRUE);
-		
+
         if ($this->input->get('user')) {
             $user = $this->input->get('user');
         } else {
@@ -7155,7 +7155,7 @@ class Reports extends MY_Controller
                 ->join('purchases', 'payments.purchase_id=purchases.id', 'left')
                 ->group_by('payments.id')
                 ->order_by('payments.date desc');
-			
+
 			if(!$this->Owner && !$this->Admin && $this->session->userdata('view_right') == 0){
 				if ($user) {
 					$this->db->where('payments.created_by', $user);
@@ -7197,7 +7197,7 @@ class Reports extends MY_Controller
             } else {
                 $data = NULL;
             }
-
+//$this->erp->print_arrays($data);
             if (!empty($data)) {
 
                 $this->load->library('excel');
@@ -7300,7 +7300,7 @@ class Reports extends MY_Controller
                 ->join('sales', 'payments.sale_id=sales.id', 'left')
                 ->join('purchases', 'payments.purchase_id=purchases.id', 'left')
                 ->group_by('payments.id');
-			
+
 			if(!$this->Owner && !$this->Admin && $this->session->userdata('view_right') == 0){
 				if ($user) {
 					$this->datatables->where('payments.created_by', $user);
@@ -7339,7 +7339,7 @@ class Reports extends MY_Controller
         }
 
     }
-	
+
 	function getPaymentsReportStaff($pdf = NULL, $xls = NULL)
     {
         $this->erp->checkPermissions('payments', TRUE);
@@ -12820,30 +12820,35 @@ class Reports extends MY_Controller
                         $this->excel->getActiveSheet()->SetCellValue('E' . $row, $this->erp->cutStringQty($sc->iqty));
 						$this->excel->getActiveSheet()->SetCellValue('F' . $row, $this->erp->cutString($sc->iprice));
                         $this->excel->getActiveSheet()->SetCellValue('G' . $row, $this->erp->cutString($sc->subtotal));
-						$this->excel->getActiveSheet()->SetCellValue('H' . $row, $this->erp->formatMoney($sc->grand_total).' ៛');
+						$this->excel->getActiveSheet()->SetCellValue('H' . $row, $this->erp->formatMoney($sc->grand_total));
 						$this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)->applyFromArray($styleArray);
 						$total += $sc->grand_total;
                         $row++;
 						$r++;
                     }
-					$this->excel->getActiveSheet()->getStyle('E'.$row.':I'.$row)->applyFromArray($styleArray);
+					$this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)->applyFromArray($styleArray);
+					$this->excel->getActiveSheet()->mergeCells('A'.$row.':D'.$row);
 					$this->excel->getActiveSheet()->mergeCells('E'.$row.':F'. $row);
 					$this->excel->getActiveSheet()->SetCellValue('E'. $row,lang('សរុបទឹកប្រាក់'));
 					$this->excel->getActiveSheet()->mergeCells('G'.$row.':I'. $row);
-					$this->excel->getActiveSheet()->SetCellValue('G'. $row, $this->erp->formatMoney($total).' ៛');
+					$this->excel->getActiveSheet()->SetCellValue('G'. $row, $this->erp->formatMoney($total));
 					$sign_nature = $row + 3;
+					$space = $row +4;
 					$this->excel->getActiveSheet()->getStyle('A'.$sign_nature.':I'. $sign_nature)->getFont()
                                 ->setName('Khmer OS Battambang')
                                 ->setSize(10);
-					$this->excel->getActiveSheet()->getStyle('B'.$sign_nature.':C'. $sign_nature)->applyFromArray($BStyle);
-					$this->excel->getActiveSheet()->mergeCells('B'.$sign_nature.':C'. $sign_nature);
-					$this->excel->getActiveSheet()->SetCellValue('B'. $sign_nature,lang('​អ្នកទទួល​'));
-					$this->excel->getActiveSheet()->getStyle('G'.$sign_nature.':I'. $sign_nature)->applyFromArray($BStyle);
-					$this->excel->getActiveSheet()->mergeCells('G'.$sign_nature.':I'. $sign_nature);
-					$this->excel->getActiveSheet()->SetCellValue('G'. $sign_nature,lang('​អ្នកលក់​'));
+					$this->excel->getActiveSheet()->getStyle('A'.$sign_nature.':B'. $sign_nature)->applyFromArray($BStyle);
+					$this->excel->getActiveSheet()->mergeCells('A'.$sign_nature.':B'. $sign_nature);
+					$this->excel->getActiveSheet()->SetCellValue('A'. $sign_nature,lang('​រ៉ៀបចំដោយ'));
+                    $this->excel->getActiveSheet()->getStyle('D'.$sign_nature.':E'. $sign_nature)->applyFromArray($BStyle);
+                    $this->excel->getActiveSheet()->mergeCells('D'.$sign_nature.':E'. $sign_nature);
+                    $this->excel->getActiveSheet()->SetCellValue('D'. $sign_nature,lang('​ផ្ដល់សិទ្ធដោយ'));
+					$this->excel->getActiveSheet()->getStyle('H'.$sign_nature.':I'. $sign_nature)->applyFromArray($BStyle);
+					$this->excel->getActiveSheet()->mergeCells('H'.$sign_nature.':I'. $sign_nature);
+					$this->excel->getActiveSheet()->SetCellValue('H'. $sign_nature,lang('​បានទទួលដោយ​'));
 					$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
 					$this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
-					$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
+					$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
 					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
 					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(8);
 					$this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);

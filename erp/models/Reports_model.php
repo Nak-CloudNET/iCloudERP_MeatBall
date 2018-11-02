@@ -1934,8 +1934,8 @@ ORDER BY
 		$this->db
 				->select("erp_sales.id, date, reference_no, customer,
 							GROUP_CONCAT(" . $this->db->dbprefix('sale_items') . ".product_name SEPARATOR '\n') as iname, 
-							GROUP_CONCAT(CONCAT((".$this->db->dbprefix('sale_items') . ".quantity),'__'," . $this->db->dbprefix('units') . ".name)  SEPARATOR '__') as iqty, 
-							GROUP_CONCAT(" . $this->db->dbprefix('sale_items') . ".unit_price SEPARATOR '__') as iprice, GROUP_CONCAT(" . $this->db->dbprefix('sale_items') . ".subtotal SEPARATOR '__') as subtotal,
+							GROUP_CONCAT(CONCAT((".$this->db->dbprefix('sale_items') . ".quantity)," . $this->db->dbprefix('units') . ".name) ) as iqty, 
+							GROUP_CONCAT(" . $this->db->dbprefix('sale_items') . ".unit_price ) as iprice, GROUP_CONCAT(" . $this->db->dbprefix('sale_items') . ".subtotal ) as subtotal,
 							grand_total, paid, 
 							(grand_total-paid) as balance, 
 							payment_status, 
