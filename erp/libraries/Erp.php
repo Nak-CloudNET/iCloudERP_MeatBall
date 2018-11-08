@@ -46,7 +46,7 @@ class Erp
 		$ch = explode('__', $str);
 		$get_price = array();
 		foreach($ch as $price){
-			$get_price[] = $this->erp->formatMoney($price).' ៛';
+			$get_price[] = $this->erp->formatMoney($price);
 		}
 		$return_price = implode("\n", $get_price);
 		return $return_price;

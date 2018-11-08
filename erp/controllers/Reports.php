@@ -12744,14 +12744,14 @@ class Reports extends MY_Controller
 					$this->excel->getActiveSheet()->mergeCells('C1:D1');
 					$this->excel->getActiveSheet()->getRowDimension('1')->setRowHeight(45);
 					$this->excel->getActiveSheet()->getStyle('C1')->getFont()
-                                ->setName('Khmer OS Muol')
+                                ->setName('Khmer OS Muol Light')
                                 ->setSize(15);
-					$this->excel->getActiveSheet()->SetCellValue('C1', lang('​សិប្បកម្មជានួន​'));
+					$this->excel->getActiveSheet()->SetCellValue('C1', lang('សិប្បកម្មជាងួន'));
 
                     $this->excel->getActiveSheet()->mergeCells('C2:D2');
                     $this->excel->getActiveSheet()->getRowDimension('1')->setRowHeight(45);
                     $this->excel->getActiveSheet()->getStyle('C2')->getFont()
-                        ->setName('Khmer OS Muol')
+                        ->setName('Khmer OS Muol Light')
                         ->setSize(13);
 
                     $this->excel->getActiveSheet()->SetCellValue('C2', lang('​ប្រហិត 888'));
@@ -12762,28 +12762,44 @@ class Reports extends MY_Controller
                     $this->excel->getActiveSheet()->mergeCells('F1:I1');
                     $this->excel->getActiveSheet()->getRowDimension('1')->setRowHeight(45);
                     $this->excel->getActiveSheet()->getStyle('F1')->getFont()
-                        ->setName('Khmer OS Muol')
+                        ->setName('Khmer OS Muol Light')
                         ->setSize(15);
-                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('វិក័យប័ត្រប្រចំាខែ'));
+                    $this->excel->getActiveSheet()->SetCellValue('F1', lang('វិក្កយបត្រប្រចាំខែ'));
                     $this->excel->getActiveSheet()->mergeCells('G2:I2');
                     $this->excel->getActiveSheet()->mergeCells('G5:I5');
                     $this->excel->getActiveSheet()->mergeCells('G6:I6');
                     $this->excel->getActiveSheet()->mergeCells('G4:I4');
 
                     $this->excel->getActiveSheet()->mergeCells('F3:I3');
-
+                    $this->excel->getActiveSheet()->getStyle('F2')->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
                     $this->excel->getActiveSheet()->getRowDimension('1')->setRowHeight(45);
                     $this->excel->getActiveSheet()->SetCellValue('F2', lang('​កាលបរិចេ្ឆទ :​'));
-
-                    $this->excel->getActiveSheet()->SetCellValue('F3', lang('​វិក័យប័ត្រទៅ :​'));
+                    $this->excel->getActiveSheet()->getStyle('F3')->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
+                    $this->excel->getActiveSheet()->SetCellValue('F3', lang('វិក្កយបត្រទៅ:'));
+                    $this->excel->getActiveSheet()->getStyle('G2')->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
                     $this->excel->getActiveSheet()->SetCellValue('G2', date('Y-m-d'));
 
 
-
+                    $this->excel->getActiveSheet()->getStyle('F4')->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
                     $this->excel->getActiveSheet()->SetCellValue('F4', lang('ឈ្មោះ'));
+                    $this->excel->getActiveSheet()->getStyle('F5')->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
                     $this->excel->getActiveSheet()->SetCellValue('F5', lang('អាស័យដ្ធាន'));
+
                     $this->excel->getActiveSheet()->getRowDimension('2')->setRowHeight(25);
 
+                    $this->excel->getActiveSheet()->getStyle('F6')->getFont()
+                         ->setName('Khmer OS Battambang')
+                         ->setSize(10);
                     $this->excel->getActiveSheet()->SetCellValue('F6', lang('លេខទូរសព័្ទ'));
 
 					$this->excel->getActiveSheet()->mergeCells('A3:D3');
@@ -12792,7 +12808,7 @@ class Reports extends MY_Controller
                                 ->setName('Khmer OS Battambang')
                                 ->setSize(10);
 
-					$this->excel->getActiveSheet()->SetCellValue('A3', lang('​អាស័យដ្ឋាន ៖ សី៧ ផ្លូវបេតុង សង្កាត់ស្ទឹងមានជ័យ ខណ្ឌមានជ័យ រាជធានីភ្នំពេញ​'));
+					$this->excel->getActiveSheet()->SetCellValue('A3', lang('#D ផ្លូវ265 សង្កាត់ទឹកល្អក់3 ខណ្ឌទួលគោក ភ្នំពេញ​'));
 					$this->excel->getActiveSheet()->mergeCells('A4:D4');
 					$this->excel->getActiveSheet()->getRowDimension('3')->setRowHeight(25);
 					$this->excel->getActiveSheet()->getStyle('A4')->getFont()
@@ -12804,12 +12820,12 @@ class Reports extends MY_Controller
                     $this->excel->getActiveSheet()->getStyle('A5')->getFont()
                         ->setName('Khmer OS Battambang')
                         ->setSize(10);
-                    $this->excel->getActiveSheet()->SetCellValue('A5', lang('​​អីុម៉ែល ៖ cheangoun888@gmail.com'));
+                    $this->excel->getActiveSheet()->SetCellValue('A5', lang('អ៊ីម៉ែល:cheangoun888@gmail.com'));
 
 					$this->excel->getActiveSheet()->getRowDimension('4')->setRowHeight(25);
 
 					$this->excel->getActiveSheet()->getStyle('C5:G5')->getFont()
-                                ->setSize(12);
+                                ->setSize(10);
 
 					$this->excel->getActiveSheet()->getRowDimension('6')->setRowHeight(25);
 
@@ -12817,7 +12833,7 @@ class Reports extends MY_Controller
                                 ->setName('Khmer OS Battambang')
                                 ->setSize(10);
                     $this->excel->getActiveSheet()->SetCellValue('A8', lang('ល.រ'));
-                    $this->excel->getActiveSheet()->SetCellValue('B8', lang('លេខវិក័យប័ត្រ'));
+                    $this->excel->getActiveSheet()->SetCellValue('B8', lang('លេខវិក្កយបត្រ'));
 					$this->excel->getActiveSheet()->SetCellValue('C8', lang('​ថ្ងៃ ខែ ឆ្នំា​'));
 					$this->excel->getActiveSheet()->SetCellValue('D8', lang('​បរិយាយមុខទំនិញ​'));
 					$this->excel->getActiveSheet()->SetCellValue('E8', lang('​ចំនួន​'));
@@ -12863,6 +12879,9 @@ class Reports extends MY_Controller
                     foreach ($_POST['val'] as $id) {
                         $sc = $this->reports_model->getSalesExportByID($id);
 						$only_date = explode(' ', $sc->date);
+                        $this->excel->getActiveSheet()->getStyle('G4')->getFont()
+                            ->setName('Khmer OS Battambang')
+                            ->setSize(10);
 						$this->excel->getActiveSheet()->SetCellValue('G4', $sc->customer);
                         $this->excel->getActiveSheet()->SetCellValue('A' . $row, $r);
                         $this->excel->getActiveSheet()->setCellValueExplicit('B' . $row, $sc->reference_no, PHPExcel_Cell_DataType::TYPE_STRING);
@@ -12872,6 +12891,10 @@ class Reports extends MY_Controller
 						$this->excel->getActiveSheet()->SetCellValue('F' . $row, $this->erp->cutString($sc->iprice));
                         $this->excel->getActiveSheet()->SetCellValue('G' . $row, $this->erp->cutString($sc->subtotal));
 						$this->excel->getActiveSheet()->SetCellValue('H' . $row, $this->erp->formatMoney($sc->grand_total));
+                        $this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)
+                            ->getAlignment()
+                            ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                        
 						$this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)->applyFromArray($styleArray);
 						$total += $sc->grand_total;
 						$dolar = 4000;
@@ -12886,6 +12909,9 @@ class Reports extends MY_Controller
                         'borders' => array(
                             'bottom' => array(
                                 'style' => PHPExcel_Style_Border::BORDER_THIN
+                            ),
+                            'left' => array(
+                                'style' => PHPExcel_Style_Border::BORDER_THIN
                             )
                         )
                     );
@@ -12896,47 +12922,57 @@ class Reports extends MY_Controller
                             )
                         )
                     );
-
-					$this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)->applyFromArray($styleArray);
+                    $left = array(
+                        'borders' => array(
+                            'left' => array(
+                                'style' => PHPExcel_Style_Border::BORDER_THIN
+                            )
+                        )
+                    );
 
 					$this->excel->getActiveSheet()->mergeCells('A'.$row.':F'.$row);
                     $this->excel->getActiveSheet()->getStyle('A'.$row.':I'.$row)
                         ->getAlignment()
                         ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+                    $this->excel->getActiveSheet()->getStyle('A'.$row.':F'.$row)->applyFromArray($left);
 					$this->excel->getActiveSheet()->SetCellValue('A'. $row,lang('សរុបទឹកប្រាក់(រៀល)'));
 					$this->excel->getActiveSheet()->mergeCells('G'.$row.':I'. $row);
                     $this->excel->getActiveSheet()->getStyle('G'.$row.':I'.$row)
                         ->getAlignment()
                         ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                    $this->excel->getActiveSheet()->getStyle('G'.$row.':I'.$row)->applyFromArray($styleArray);
 					$this->excel->getActiveSheet()->SetCellValue('G'. $row, $this->erp->formatMoney($total));
 
                     $this->excel->getActiveSheet()->getStyle('A'.$sign_nature2.':I'. $sign_nature2)->getFont()
                         ->setName('Khmer OS Battambang')
                         ->setSize(10);
-                    $this->excel->getActiveSheet()->getStyle('A'.$sign_nature2.':I'.$sign_nature2)->applyFromArray($styleArray);
-
-
-                    $this->excel->getActiveSheet()->mergeCells('A'.$sign_nature2.':F'.$sign_nature2);
-
                     $this->excel->getActiveSheet()->getStyle('A'.$sign_nature2.':I'.$sign_nature2)
                         ->getAlignment()
                         ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+
+                    $this->excel->getActiveSheet()->mergeCells('A'.$sign_nature2.':F'.$sign_nature2);
+                    $this->excel->getActiveSheet()->getStyle('A'.$sign_nature2.':F'.$sign_nature2)->applyFromArray($bottom);
+
                     $this->excel->getActiveSheet()->SetCellValue('A'. $sign_nature2,lang('សរុបទឹកប្រាក់ $1=4000៛ (ដុល្លា)'));
 
                     $this->excel->getActiveSheet()->mergeCells('G'.$sign_nature2.':I'. $sign_nature2);
                     $this->excel->getActiveSheet()->getStyle('G'.$sign_nature2.':I'.$sign_nature2)
                         ->getAlignment()
                         ->setHorizontal(\PHPExcel_Style_Alignment::VERTICAL_CENTER);
+                    $this->excel->getActiveSheet()->getStyle('G'.$sign_nature2.':I'.$sign_nature2)->applyFromArray($outline);
                     $this->excel->getActiveSheet()->SetCellValue('G'. $sign_nature2,number_format($total_dolar,2));
 
                     $sign_nature2++;
+                    $this->excel->getActiveSheet()->getStyle('A'.$sign_nature2.':I'. $sign_nature2)->getFont()
+                        ->setName('Khmer OS Battambang')
+                        ->setSize(10);
                     $this->excel->getActiveSheet()->mergeCells('A'.$sign_nature2.':I'.$sign_nature2);
                     $this->excel->getActiveSheet()->SetCellValue('A'. $sign_nature2,lang('ពត៌មានធនាគារ វេលុយតាមABA / លេខគណនី: 000075170 (Chea Cheavpong)'));
 
 
                     $sign_nature2 = $row +1;
 
-					$sign_nature = $row + 7;
+					$sign_nature = $row + 5;
 
 					$this->excel->getActiveSheet()->getStyle('A'.$sign_nature.':I'. $sign_nature)->getFont()
                                 ->setName('Khmer OS Battambang')
@@ -12953,7 +12989,7 @@ class Reports extends MY_Controller
 					$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
 					$this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
 					$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
-					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
 					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(8);
 					$this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(15);
 					$this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(10);
