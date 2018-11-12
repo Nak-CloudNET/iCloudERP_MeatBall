@@ -102,7 +102,7 @@
 							<?php } ?>
 							<?php if($GP['customers-export']) { ?>
 								<li>
-									<a href="#" id="excel" data-action="export_excel">
+									<a href="#" id="excel" data-action="export_excel" >
 										<i class="fa fa-file-excel-o"></i> <?= lang('export_to_excel') ?>
 									</a>
 								</li>

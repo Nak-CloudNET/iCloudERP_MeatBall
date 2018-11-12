@@ -1052,6 +1052,8 @@ class Pos_model extends CI_Model
     public function getInvoiceByID($id)
     {
         $q = $this->db->get_where('sales', array('id' => $id), 1);
+
+
         if ($q->num_rows() > 0) {
             return $q->row();
         }

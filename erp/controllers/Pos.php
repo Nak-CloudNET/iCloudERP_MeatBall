@@ -1571,6 +1571,7 @@ class Pos extends MY_Controller
         $this->data['message'] = $this->session->flashdata('message');
         $this->data['rows'] = $this->pos_model->getAllInvoiceItems($sale_id);
         $inv = $this->pos_model->getInvoiceByID($sale_id);
+        //$this->erp->print_arrays($inv);
         $biller_id = $inv->biller_id;
         $customer_id = $inv->customer_id;
         $this->data['biller'] = $this->pos_model->getCompanyByID($biller_id);
