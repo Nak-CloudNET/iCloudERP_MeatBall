@@ -40,11 +40,6 @@
         padding-right: 10px;
     }
 
-    .sub-title h2 {
-        font-family: "Khmer OS Muol Light";
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
 
     .bg th {
         background-color: orange !important;
@@ -78,7 +73,7 @@
                             </div>
                             <div class="col-md-9 col-sm-9 col-xs-9">
                                 <div class="title">
-                                    <div class="sub-title"><h2>សិប្បកម្មជាងួន(បិតាប្រហិត888)</h2></div>
+                                    <div class="sub-title"><h2 style="font-family: khmer os moul Light;font-size: 20px;">សិប្បកម្មជាងួន(បិតាប្រហិត888)</h2></div>
                                     <div class="describe">មានលក់ដំុ​ និងលក់រាយ​ ប្រហិតសាច់គោ ប្រហិតសាច់ជ្រូក</p></div>
                                 </div>
                             </div>
@@ -89,7 +84,7 @@
                             <br>
                             <div class="col-md-7 col-sm-8 col-xs-7">
                                 <p>ផ្ទះលេខ4D ផ្លូវ265 សង្កាត់ទឹកល្អក់3 ខណ្ឌទួលគោក រាជធានីភ្មំពេញ</p>
-                                <p>អ៊ីម៉ែល​ : <?php echo $biller->email; ?></p>
+                                <p>អ៊ីម៉ែល​ &nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $biller->email; ?></p>
                                 <p>ហ្វេសប៊ុក : បិតាប្រហិត888</p>
                             </div>
                             <div class="col-md-5 col-sm-4 col-xs-5">
@@ -102,7 +97,7 @@
                     </div>
                     <div class="row-content">
                         <div class="col-md-12">
-                            <h2 class="sub-title" style="text-align: center; font-family: khmer os moul Light">វិក្កយបត្រ</h2>
+                            <h2 class="sub-title" style="text-align: center; font-family: khmer os moul Light;font-size: 14px">វិក្កយបត្រ</h2>
                         </div>
                     </div>
                     <div class="row-content">
@@ -157,15 +152,11 @@
                                         <td align="center"><?= formateQTY($row->quantity); ?><?php echo ' ' . $product_unit ?></td>
                                         <td align="center"><?= $row->subtotal != 0 ? $this->erp->formatMoney($row->unit_price) . ' ៛' : $free; ?></td>
                                         <td align="center"><?php echo $this->erp->formatMoney($row->subtotal) . ' ៛' ?></td>
-
                                     </tr>
-
-
                                     <?php
                                     $r++;
                                 endforeach;
                                 ?>
-
                                 </tbody>
                                 <tfoot>
 
@@ -191,8 +182,9 @@
                                 </tr>
                                 <tr height="30px">
                                     <td colspan="2"
-                                        style="border-bottom:">
-                                        ឈ្មោះអតិថិជន: <?= $customer->name ?>
+                                        style="border-right: 1px solid black;">
+                                        ឈ្មោះអតិថិជន: &nbsp;&nbsp;<br>
+                                        <span style="margin-left: 140px;"><?= $customer->name ?></span>
                                     </td>
                                     <td class="foot" colspan="2" border="0" align="right">នៅខ្វះ​</td>
                                     <td align="center">

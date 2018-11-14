@@ -12722,7 +12722,7 @@ class Reports extends MY_Controller
 	
 	function customer_report_sales_actions(){
 		$this->form_validation->set_rules('form_action', lang("form_action"), 'required');
-	
+
         if ($this->form_validation->run() == true) {
 
             if (!empty($_POST['val'])) {
@@ -12993,9 +12993,9 @@ class Reports extends MY_Controller
 					$this->excel->getActiveSheet()->getStyle('A'.$sign_nature.':B'. $sign_nature)->applyFromArray($BStyle);
 					$this->excel->getActiveSheet()->mergeCells('A'.$sign_nature.':B'. $sign_nature);
 					$this->excel->getActiveSheet()->SetCellValue('A'. $sign_nature,lang('​រៀបរៀងដោយ'));
-                    $this->excel->getActiveSheet()->getStyle('D'.$sign_nature.':E'. $sign_nature)->applyFromArray($BStyle);
-                    $this->excel->getActiveSheet()->mergeCells('D'.$sign_nature.':E'. $sign_nature);
-                    $this->excel->getActiveSheet()->SetCellValue('D'. $sign_nature,lang('​ផ្ដល់សិទ្ធដោយ'));
+                    $this->excel->getActiveSheet()->getStyle('E'.$sign_nature)->applyFromArray($BStyle);
+                    //$this->excel->getActiveSheet()->mergeCells('D'.$sign_nature.':E'. $sign_nature);
+                    $this->excel->getActiveSheet()->SetCellValue('E'. $sign_nature,lang('​ផ្ដល់សិទ្ធដោយ'));
 					$this->excel->getActiveSheet()->getStyle('H'.$sign_nature.':I'. $sign_nature)->applyFromArray($BStyle);
 					$this->excel->getActiveSheet()->mergeCells('H'.$sign_nature.':I'. $sign_nature);
 					$this->excel->getActiveSheet()->SetCellValue('H'. $sign_nature,lang('​បានទទួលដោយ​'));
@@ -13003,7 +13003,7 @@ class Reports extends MY_Controller
 					$this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
 					$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
 					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
-					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(8);
+					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(12);
 					$this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);
 					$this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(10);
 					$this->excel->getActiveSheet()->getColumnDimension('H')->setWidth(10);
@@ -13027,7 +13027,7 @@ class Reports extends MY_Controller
 						 array(
 							 'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_RIGHT
 						 ));
-						
+
 						$this->excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
                         require_once(APPPATH . "third_party" . DIRECTORY_SEPARATOR . "MPDF" . DIRECTORY_SEPARATOR . "mpdf.php");
                         $rendererName = PHPExcel_Settings::PDF_RENDERER_MPDF;
@@ -13069,10 +13069,6 @@ class Reports extends MY_Controller
 						 array(
 							 'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT
 						 ));
-                        $this->excel->getActiveSheet()->getStyle('E18:F18')->getAlignment()->applyFromArray(
-                            array(
-                                'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_RIGHT
-                            ));
                         $this->excel->getActiveSheet()->getStyle('G:I')->getAlignment()->applyFromArray(
                             array(
                                 'horizontal' => PHPExcel_Style_Alignment::VERTICAL_CENTER
