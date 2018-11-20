@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-md-5 col-sm-4 col-xs-5">
                                 <div class="pull-right">
-                                    <p>No.</p>
+                                    <p>No.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $inv->reference_no; ?></p>
                                     <p>លេខកម្មង់: <?php echo $biller->phone; ?></p>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="row-content">
                         <div class="col-md-12">
-                            <h2 class="sub-title" style="text-align: center; font-family: khmer os moul Light;font-size: 14px">វិក្កយបត្រ</h2>
+                            <h2 class="sub-title" style="text-align: center; font-family: khmer os moul Light;font-size: 18px">វិក្កយបត្រ</h2>
                         </div>
                     </div>
                     <div class="row-content">
