@@ -7149,7 +7149,7 @@ class Reports extends MY_Controller
         if ($pdf || $xls) {
 
             $this->db
-                ->select($this->db->dbprefix('payments') . ".id as idd, ". $this->db->dbprefix('sales') . ".suspend_note as noted," . $this->db->dbprefix('payments') . ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".reference_no as sale_ref, " . $this->db->dbprefix('purchases') . ".reference_no as purchase_ref, " . $this->db->dbprefix('payments') . ".note, paid_by, amount, type")
+                ->select($this->db->dbprefix('payments') . ".id as idd, ". $this->db->dbprefix('sales') . ".date as noted," . $this->db->dbprefix('payments') . ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".reference_no as sale_ref, " . $this->db->dbprefix('customer') . ".reference_no as purchase_ref, " . $this->db->dbprefix('payments') . ".note, paid_by, amount, type")
                 ->from('payments')
                 ->join('sales', 'payments.sale_id=sales.id', 'left')
                 ->join('purchases', 'payments.purchase_id=purchases.id', 'left')
@@ -7287,7 +7287,7 @@ class Reports extends MY_Controller
 
             $this->load->library('datatables');
             $this->datatables
-                ->select($this->db->dbprefix('payments') . ".id as idd, " . $this->db->dbprefix('sales') . ".date as sale_date, ". $this->db->dbprefix('payments'). ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".customer as customer,  " . $this->db->dbprefix('sales') . ".total_items as total_items,
+                ->select($this->db->dbprefix('payments') . ".id as idd, " . $this->db->dbprefix('sales') . ".date as sale_date, ". $this->db->dbprefix('payments'). ".date, " . $this->db->dbprefix('payments') . ".reference_no as payment_ref, " . $this->db->dbprefix('sales') . ".reference_no as sale_ref,  " . $this->db->dbprefix('sales') . ".customer as customer,  " . $this->db->dbprefix('sales') . ".total_items as total_items,
 				(
 					CASE 
 						WHEN " . $this->db->dbprefix('payments') . ".note = ' ' THEN 
