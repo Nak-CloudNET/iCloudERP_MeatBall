@@ -12880,17 +12880,19 @@ class Reports extends MY_Controller
 					$total_cost = 0;
 					$r = 1;
                     foreach ($_POST['val'] as $id) {
+
                         $sc = $this->reports_model->getSalesExportByID($id);
 						$only_date = explode(' ', $sc->date);
                         $this->excel->getActiveSheet()->getStyle('G4')->getFont()
                             ->setName('Khmer OS Battambang')
                             ->setSize(10);
+
 						$this->excel->getActiveSheet()->SetCellValue('G4', $sc->customer);
                         $this->excel->getActiveSheet()->SetCellValue('A' . $row, $r);
                         $this->excel->getActiveSheet()->setCellValueExplicit('B' . $row, $sc->reference_no, PHPExcel_Cell_DataType::TYPE_STRING);
                         $this->excel->getActiveSheet()->SetCellValue('C' . $row, $only_date[0]);
 						$this->excel->getActiveSheet()->SetCellValue('D' . $row, $sc->iname);
-                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $this->erp->cutStringQty($sc->iqty));
+                        $this->excel->getActiveSheet()->SetCellValue('E' . $row, $this->erp->cutString($sc->iqty));
 						$this->excel->getActiveSheet()->SetCellValue('F' . $row, $this->erp->cutString($sc->iprice));
                         $this->excel->getActiveSheet()->SetCellValue('G' . $row, $this->erp->cutString($sc->subtotal));
 						$this->excel->getActiveSheet()->SetCellValue('H' . $row, $this->erp->formatMoney($sc->grand_total));
@@ -13002,8 +13004,8 @@ class Reports extends MY_Controller
 					$this->excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
 					$this->excel->getActiveSheet()->getColumnDimension('B')->setWidth(12);
 					$this->excel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
-					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
-					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(12);
+					$this->excel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
+					$this->excel->getActiveSheet()->getColumnDimension('E')->setWidth(22);
 					$this->excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);
 					$this->excel->getActiveSheet()->getColumnDimension('G')->setWidth(10);
 					$this->excel->getActiveSheet()->getColumnDimension('H')->setWidth(10);
