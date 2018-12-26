@@ -101,6 +101,9 @@
                         </div>
                     </div>
                     <div class="row-content">
+
+
+
                         <div class="col-md-12" class="he">
                             <table border="1px" width="100%" style="margin-top:35px;">
                                 <thead>
@@ -109,6 +112,14 @@
                                     <th><?= lang("បរិយាយមុខទំនិញ"); ?></th>
                                     <th><?= lang("បរិមាណ"); ?></th>
                                     <th><?= lang("តំលៃរាយ"); ?></th>
+                                    <?php
+                                    if ($inv->order_tax !=0) {
+                                        echo '<th style="padding-right:20px; text-align:center; vertical-align:middle;">' . lang("ពន្ធអាករ") . '</th>';
+                                    }
+                                    if ($Settings->product_discount && $inv->product_discount != 0) {
+                                        echo '<th style="padding-right:20px; text-align:center; vertical-align:middle;">' . lang("discount") . '</th>';
+                                    }
+                                    ?>
                                     <th><?= lang("តំលៃសរុប"); ?></th>
                                 </tr>
                                 </thead>
@@ -129,6 +140,7 @@
 
                                 $r = 1;
                                 $total = 0;
+                                $tax_summary = array();
                                 foreach ($rows as $row):
                                     $free = lang('free');
                                     $product_unit = '';
@@ -151,6 +163,14 @@
                                         <td style="padding-left:5px !important;"><?= $product_name_setting ?> <?= $row->details ? '<br>' . $row->details : ''; ?> </td>
                                         <td align="center"><?= formateQTY($row->quantity); ?><?php echo ' ' . $product_unit ?></td>
                                         <td align="center"><?= $row->subtotal != 0 ? $this->erp->formatMoney($row->unit_price) . ' ៛' : $free; ?></td>
+                                        <?php
+                                        if ($inv->order_tax !=0) {
+                                            echo '<td style="width: 120px; text-align:center; vertical-align:middle;">' . ($inv->order_tax != 0 && $inv->tax_code ? '<small>('.$inv->tax_code.')</small>' : '') . ' ' . $this->erp->formatMoney($inv->order_tax) . '</td>';
+                                        }
+                                        if ($Settings->product_discount && $inv->product_discount != 0) {
+                                            echo '<td style="width: 120px; text-align:center; vertical-align:middle;">' . ($row->discount != 0 ? '<small>(' . $row->discount . ')</small> ' : '') . $this->erp->formatMoney($row->item_discount) . '</td>';
+                                        }
+                                        ?>
                                         <td align="center"><?php echo $this->erp->formatMoney($row->subtotal) . ' ៛' ?></td>
                                     </tr>
                                     <?php
@@ -165,7 +185,13 @@
                                         style="border-bottom: transparent 1px solid; border-right: transparent 1px solid; border-left: transparent 1px solid">
                                         ថ្ងៃទី <?= date('d', strtotime( $inv->date )); ?> ខែ​ <?= date('m', strtotime( $inv->date )); ?> ឆ្នាំ <?= date('Y', strtotime( $inv->date )); ?>
                                     </td>
-                                    <td class="foot" colspan="2" border="0" align="right">សរុបទឹកប្រាក់​</td>
+                                    <?php if ($Settings->product_discount && $inv->product_discount != 0 && $inv->order_tax != 0){
+                                    echo '<td class="foot" colspan="4" border="0" align="right">'.សរុបទឹកប្រាក់​.'</td>';
+                                    }elseif ($Settings->product_discount && $inv->product_discount != 0 || $inv->order_tax != 0){
+                                        echo '<td class="foot" colspan="3" border="0" align="right">'.សរុបទឹកប្រាក់​.'</td>';
+                                    }else{
+                                        echo '<td class="foot" colspan="2" border="0" align="right">'.សរុបទឹកប្រាក់​.'</td>';
+                                    }?>
                                     <td align="center">
                                         <?= $this->erp->formatMoney($inv->grand_total) . ' ៛'; ?>
                                     </td>
@@ -174,8 +200,13 @@
                                     <td colspan="2"
                                         style="  border-left: transparent 1px solid">
                                     </td>
-
-                                    <td class="foot" colspan="2" border="0" align="right">ប្រាក់កក់​</td>
+                                    <?php if ($Settings->product_discount && $inv->product_discount != 0 && $inv->order_tax != 0){
+                                    echo '<td class="foot" colspan="4" border="0" align="right">'.ប្រាក់កក់​.'</td>';
+                                    }elseif ($Settings->product_discount && $inv->product_discount != 0 || $inv->order_tax != 0){
+                                        echo '<td class="foot" colspan="3" border="0" align="right">'.ប្រាក់កក់​.'</td>';
+                                    }else{
+                                       echo '<td class="foot" colspan="2" border="0" align="right">'.ប្រាក់កក់​.'</td>';
+                                    }?>
                                     <td align="center">
                                         <?= $this->erp->formatMoney($inv->paid) . ' ៛'; ?>
                                     </td>
@@ -186,7 +217,13 @@
                                         ឈ្មោះអតិថិជន: &nbsp;&nbsp;<br>
                                         <span style="margin-left: 140px;"><?= $customer->name ?></span>
                                     </td>
-                                    <td class="foot" colspan="2" border="0" align="right">នៅខ្វះ​</td>
+                                    <?php if ($Settings->product_discount && $inv->product_discount != 0 && $inv->order_tax != 0){
+                                    echo '<td class="foot" colspan="4" border="0" align="right">'.នៅខ្វះ​.'</td>';
+                                    }elseif ($Settings->product_discount && $inv->product_discount != 0 || $inv->order_tax != 0){
+                                        echo '<td class="foot" colspan="3" border="0" align="right">'.នៅខ្វះ​.'</td>';
+                                    }else{
+                                        echo '<td class="foot" colspan="2" border="0" align="right">'.នៅខ្វះ​.'</td>';
+                                    }?>
                                     <td align="center">
                                         <?= $this->erp->formatMoney($inv->grand_total-$inv->paid) . ' ៛'; ?>
                                     </td>
